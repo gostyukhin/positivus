@@ -1,0 +1,20 @@
+@use 'helpers' as mix;
+@use 'variables' as var;
+
+.container {
+  max-width: calc(var.$container-width + (var.$container-padding-x * 2));
+  margin-inline: auto;
+  padding-inline: var.$container-padding-x;
+}
+
+.visually-hidden {
+  @include mix.visually-hidden;
+}
+
+.scroll-lock {
+  overflow-y: hidden;
+}
+
+.hidden {
+  display: none;
+}

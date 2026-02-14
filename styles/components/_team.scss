@@ -1,0 +1,145 @@
+@use '../variables' as var;
+@use '../helpers' as mix;
+
+.team-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  @include mix.fluid(gap, 40, 30);
+  overflow: hidden;
+  padding-bottom: 5px;
+  transition: max-height 0.3s ease-out;
+
+  &.default {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  @include mix.xl {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mix.md {
+    grid-template-columns: 1fr;
+  }
+}
+
+.team-card {
+  min-height: 331px;
+  position: relative;
+  padding: 40px 35px;
+  border: 1px solid var.$color-dark;
+  box-shadow: 0px 5px 0px 0px var.$color-dark;
+  border-radius: var.$radius-xl;
+  overflow: hidden;
+
+  @include mix.hover {
+    box-shadow: 0px 0px 0px 0px var.$color-dark;
+
+    .team-card-title-hover {
+      transform: translateX(-100%);
+    }
+
+    span {
+      opacity: 1;
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0px 5px 0px 0px var.$color-accent;
+  }
+
+  @include mix.min-sm {
+    padding: 30px;
+  }
+}
+
+.team-card-title-hover {
+  position: absolute;
+  z-index: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 60px;
+  font-weight: 700;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px var.$color-black;
+  opacity: 0.4;
+  transform: translateX(0);
+  transition: transform 10s ease-out;
+
+  span {
+    display: block;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+
+  @include mix.lg {
+    display: none;
+  }
+}
+
+.team-card-info {
+  line-height: 1.2;
+}
+
+.team-card-name {
+  line-height: 1.5;
+}
+
+.team-card-avatar {
+  @include mix.square(102px);
+}
+
+.team-card-profile {
+  display: flex;
+  gap: 20px;
+
+  @include mix.min-sm {
+    flex-direction: column;
+  }
+}
+
+.team-card-user {
+  align-self: flex-end;
+}
+
+.team-card-link {
+  position: absolute;
+  top: 40px;
+  right: 35px;
+  @include mix.square(34px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var.$color-dark;
+  transition: var.$transition-base;
+
+  @include mix.sm {
+    flex-shrink: 0;
+    position: static;
+    align-self: flex-start;
+  }
+}
+
+.team-card-header {
+  padding-bottom: 28px;
+  border-bottom: 1px solid var.$color-black;
+
+  @include mix.sm {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+  }
+}
+
+.team-card-body {
+  padding-top: 28px;
+}
+
+.team-show-all {
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-end;
+}

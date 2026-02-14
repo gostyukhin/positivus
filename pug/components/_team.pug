@@ -1,0 +1,17 @@
+mixin team(data)
+  .team-cards#team-cards(data-height="team")
+    each item in data
+      a.team-card(href="#!" data-aos="fade-up")
+        .team-card-title-hover
+          span= item.name
+        .team-card-header
+          .team-card-profile 
+            img.team-card-avatar(src=item.img, alt=item.alt loading="lazy")
+            .team-card-user 
+              p.h4.team-card-name= item.name 
+              span.team-card-job= item.job 
+          .team-card-link 
+            include ../../media/icons/linkedin-2.svg
+        .team-card-body 
+          p.team-card-info= item.experience
+  .team-show-all

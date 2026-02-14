@@ -1,0 +1,4 @@
+mixin formTextarea(textareaId, textareaName, textareaPlaceholder, textareaLabel)
+  .form-item
+    label.form-label(for=textareaId)= textareaLabel
+    textarea.form-textarea(name=textareaName id=textareaId placeholder= textareaPlaceholder) 

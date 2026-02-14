@@ -1,0 +1,26 @@
+$xl: 1200px;
+$lg: 992px;
+$md: 768px;
+$sm: 576px;
+
+$container-width: 1240px;
+$container-padding-x: 20px;
+
+$font-family-system:
+  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+  Arial, sans-serif;
+$font-family-base: 'Space Grotesk', $font-family-system;
+
+$transition-base: all 0.2s ease-out;
+
+$color-accent: #b9ff66;
+$color-dark: #191a23;
+$color-gray: #f3f3f3;
+$color-white: #ffffff;
+$color-black: #000000;
+$color-placeholder: #898989;
+$color-neutral: #292a32;
+
+$radius-xl: 45px;
+$radius-l: 14px;
+$radius-s: 7px;

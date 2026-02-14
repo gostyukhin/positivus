@@ -1,0 +1,13 @@
+mixin nav(variant)
+  nav(class= variant ? `nav-${variant}` : 'nav')
+    ul(class= variant ? `nav-${variant}-list` : 'nav-list') 
+      li(class= variant ? `nav-${variant}-item` : 'nav-item') 
+        a(class= variant ? `nav-${variant}-link` : 'nav-link' href="#!") About us
+      li(class= variant ? `nav-${variant}-item` : 'nav-item')
+        a(class= variant ? `nav-${variant}-link` : 'nav-link' href="#!") Services
+      li(class= variant ? `nav-${variant}-item` : 'nav-item') 
+        a(class= variant ? `nav-${variant}-link` : 'nav-link' href="#!") Use Cases
+      li(class= variant ? `nav-${variant}-item` : 'nav-item') 
+        a(class= variant ? `nav-${variant}-link` : 'nav-link' href="#!") Pricing
+      li(class= variant ? `nav-${variant}-item` : 'nav-item') 
+        a(class= variant ? `nav-${variant}-link` : 'nav-link' href="#!") Blog

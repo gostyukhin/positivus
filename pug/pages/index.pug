@@ -1,0 +1,90 @@
+extends ../_layout.pug
+
+block variables 
+  -
+    const currentPage = "index"
+
+block content
+  include ../data/_services.pug
+  include ../data/_case.pug
+  include ../data/_accordion.pug
+  include ../data/_team.pug
+  include ../data/_reviews.pug
+  
+  section
+    .container
+      .hero-wrapper
+        .hero-content
+          .hero-col(data-aos="zoom-in" data-aos-delay="150")
+            h1.h1.hero-title Navigating the digital landscape for success
+            p.hero-subtitle Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.
+            +button(
+              "button",
+              "btn btn--secondary",
+              "Book a consultation"
+            )(data-text="Book a consultation")
+          img.hero-img(src="media/images/hero-img.svg", alt="hero-img" data-aos="zoom-in" data-aos-delay="250")
+      +marquee()
+            
+  section.services
+    .container 
+      +titleRow(
+        "Services",
+        "At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:"
+      )
+      +services(services)
+            
+      .free-quote(data-aos="fade-up")
+        .free-quote-col
+          h3.h3 Let’s make things happen
+          p.free-quote-subtitle Contact us today to learn more about how our digital marketing services can help your business grow and succeed online.
+          +button(
+            "button",
+            "btn btn--secondary",
+            "Get your free proposal"
+          )(data-text="Get your free proposal")
+        img.free-quote-img(src="media/images/quote-img.svg", alt="quote-img" loading="lazy")
+        
+  section 
+    .container 
+      +titleRow(
+        "Case Studies",
+        "Explore Real-Life Examples of Our Proven Digital Marketing Success through Our Case Studies"
+      )
+      +case(cases)
+      
+                  
+  section 
+    .container 
+      +titleRow(
+        "Our Working Process",
+        "Step-by-Step Guide to . Your Business Goals",
+        "subtitle-min"
+      )
+      +accordion(accordion)
+      
+  section.team 
+    .container 
+      +titleRow(
+        'Team',
+        'Meet the skilled and experienced team behind our successful digital marketing strategies'
+      )
+      +team(team)
+      
+  section 
+    .container 
+      +titleRow(
+        "Testimonials",
+        "Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services"
+      )
+      +reviews(reviews)
+      
+  section 
+    .container 
+      +titleRow(
+        "Contact Us",
+        "Connect with Us: Let's Discuss Your Digital Marketing Needs"
+      )
+      .form-wrapper(data-aos="fade-up")
+        +mainForm()
+        img.form-img(src="media/images/form-img.svg", alt="form-img" loading="lazy")

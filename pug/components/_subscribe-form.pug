@@ -1,0 +1,16 @@
+mixin subscribeForm()
+  form.subscribe-form
+    +formInput(
+      'email',
+      'user-email-footer',
+      'user-email-footer',
+      'Email',
+      '',
+      'form-input--dark'
+    )
+    +button(
+      'submit',
+      'btn btn--accent',
+      'Subscribe to news'
+    )(data-text="Subscribe to news")
+    

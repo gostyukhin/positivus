@@ -1,0 +1,73 @@
+@use '../variables' as var;
+@use '../helpers' as mix;
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: relative;
+  z-index: 20;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  @include mix.fluid(gap, 40, 12);
+
+  @include mix.lg {
+    display: none;
+  }
+}
+
+.header-burger {
+  display: none;
+
+  @include mix.lg {
+    display: block;
+    width: 24px;
+    height: 16px;
+    position: relative;
+  }
+
+  span {
+    position: absolute;
+    width: 100%;
+    background-color: var.$color-black;
+    height: 2px;
+    border-radius: var.$radius-l;
+
+    &:first-child {
+      top: 0;
+    }
+
+    &:nth-child(2) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:last-child {
+      bottom: 0;
+    }
+  }
+
+  &.active {
+    transform: rotate(180deg);
+
+    span {
+      &:last-child {
+        transform: translateY(50%) rotate(45deg);
+        bottom: 50%;
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:first-child {
+        transform: translateY(-50%) rotate(-45deg);
+        top: 50%;
+      }
+    }
+  }
+}

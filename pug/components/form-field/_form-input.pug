@@ -1,0 +1,4 @@
+mixin formInput(inputType, inputId, inputName, inputPlaceholder, inputLabel, inputMode = '')
+  .form-item
+    label.form-label(for=inputId class= inputLabel ? 'form-label' : 'visually-hidden')= inputLabel
+    input.form-input(type=inputType, name=inputName id= inputId, placeholder= inputPlaceholder class= inputMode)
