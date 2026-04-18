@@ -1,0 +1,179 @@
+@use '../variables' as var;
+@use '../helpers' as mix;
+
+.services-card-img {
+  max-width: 210px;
+  transition: var.$transition-base;
+
+  @include mix.lg {
+    max-width: 165px;
+    align-self: flex-end;
+    max-height: 142px;
+  }
+}
+
+.services-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  @include mix.fluid(gap, 40, 30);
+  @include mix.fluid(margin-bottom, 120, 70);
+
+  @include mix.lg {
+    grid-template-columns: 1fr;
+  }
+}
+
+.services-card-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+  height: 100%;
+
+  @include mix.lg {
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 27px;
+  }
+}
+
+.services-card {
+  border-radius: var.$radius-xl;
+  border: 1px solid var.$color-dark;
+  box-shadow: 0px 5px 0px 0px var.$color-dark;
+  padding: 50px;
+  min-height: 310px;
+
+  @include mix.hover {
+    box-shadow: 0px 0px 0px 0px var.$color-dark;
+
+    .services-card-img {
+      transform: translateY(-5px);
+    }
+
+    .services-card-link-icon {
+      svg {
+        transform: rotate(30deg);
+      }
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0px 5px 0px 0px var.$color-accent;
+  }
+
+  @include mix.min-sm {
+    padding: 30px;
+  }
+
+  &--light {
+    .services-card-title {
+      span {
+        background-color: var.$color-accent;
+      }
+    }
+
+    .services-card-link-icon {
+      background-color: var.$color-dark;
+    }
+
+    .services-card-link svg path {
+      fill: var.$color-accent;
+    }
+  }
+
+  &--accent {
+    background-color: var.$color-accent;
+
+    .services-card-title {
+      span {
+        background-color: var.$color-white;
+      }
+    }
+
+    .services-card-link-icon {
+      background-color: var.$color-dark;
+    }
+
+    .services-card-link svg path {
+      fill: var.$color-accent;
+    }
+  }
+
+  &--dark {
+    background-color: var.$color-dark;
+
+    .services-card-title {
+      span {
+        background-color: var.$color-white;
+      }
+    }
+
+    .services-card-link-icon {
+      background-color: var.$color-white;
+    }
+
+    .services-card-link svg path {
+      fill: var.$color-black;
+    }
+
+    .services-card-link {
+      color: var.$color-white;
+    }
+  }
+}
+
+.services-card-title {
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  span {
+    display: inline-block;
+    padding-inline: 7px;
+    border-radius: var.$radius-s;
+  }
+
+  @include mix.lg {
+    grid-column: span 2;
+  }
+}
+
+.services-card-col {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+
+  @include mix.lg {
+    display: contents;
+  }
+}
+
+.services-card-link-icon {
+  @include mix.square(41px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.services-card-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 20px;
+  line-height: 1.4;
+
+  @include mix.lg {
+    align-self: end;
+  }
+
+  span {
+    @include mix.xl {
+      display: none;
+    }
+  }
+}

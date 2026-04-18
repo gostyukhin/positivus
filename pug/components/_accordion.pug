@@ -1,0 +1,17 @@
+mixin accordion(data)
+  .accordion
+    each item ,i in data
+      .accordion-item(class= i === 0 ? 'active' : '' data-aos="fade-up") 
+        h3 
+          button.accordion-button(type="button" aria-controls= item.id aria-expanded=item.expanded ? "true" : "false", class= i === 0 ? 'active' : '')
+            span.accordion-button-title
+              span.accordion-counter #{('0' + (i + 1)).slice(-2)}
+              span.accordion-title= item.title
+            span.accordion-button-icon 
+              span.span.accordion-button-main
+                include ../../media/icons/plus.svg
+              span.span.accordion-button-active
+                include ../../media/icons/minus.svg
+        .accordion-wrapper(id= item.id class= i === 0 ? 'open' : '' aria-hidden= i === 0 ? "false" : "true")
+          .accordion-body
+            p.accordion-text= item.body

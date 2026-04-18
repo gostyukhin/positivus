@@ -1,0 +1,14 @@
+mixin services(data)
+  .services-cards
+    each card in data
+      a.services-card(href= card.href class= card.background data-aos="fade-up")
+        .services-card-wrapper
+          .services-card-col 
+            h3.h3.services-card-title
+              span= card.title
+              span= card.subtitle
+            .services-card-link 
+              .services-card-link-icon
+                include ../../media/icons/arrow-link.svg
+              span Learn more
+          img.services-card-img(src= card.img, alt= card.alt loading="lazy")

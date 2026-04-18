@@ -1,0 +1,237 @@
+@use '../variables' as var;
+@use '../helpers' as mix;
+
+.main-form {
+  max-width: 556px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
+
+  @include mix.md {
+    max-width: 100%;
+  }
+}
+
+.form-wrapper {
+  background-color: var.$color-gray;
+  border-radius: var.$radius-xl;
+  @include mix.fluid(padding-top, 60, 40);
+  @include mix.fluid(padding-left, 100, 30);
+  @include mix.fluid(padding-bottom, 70, 40);
+  position: relative;
+  overflow: hidden;
+
+  @include mix.md {
+    @include mix.fluid(padding-right, 100, 30);
+  }
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.form-choices {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  @include mix.fluid(margin-bottom, 40, 36);
+
+  @include mix.md {
+    justify-content: center;
+  }
+
+  @include mix.min-sm {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.custom-radio {
+  display: block;
+  @include mix.square(28px);
+  border-radius: 50%;
+  border: 1px solid var.$color-dark;
+  order: -1;
+  position: relative;
+  flex-shrink: 0;
+  transition: var.$transition-base;
+
+  &::before {
+    @include mix.abs-center();
+    content: '';
+    @include mix.square(16px);
+    background-color: var.$color-accent;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: var.$transition-base;
+  }
+}
+
+.form-choice-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+
+  @include mix.hover {
+    .custom-radio {
+      &::before {
+        transform: scale(0.4);
+      }
+    }
+  }
+}
+
+.form-choice:checked + .custom-radio {
+  &::before {
+    transform: scale(1);
+  }
+}
+
+.form-choice:focus + .custom-radio {
+  box-shadow: 2px 2px 10px 2px var.$color-dark;
+}
+
+.form-choice-label:focus-within .custom-radio::before {
+  transform: scale(1);
+}
+
+input,
+textarea {
+  border: none;
+  padding: 0;
+  background: none;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.form-textarea {
+  padding: 18px 30px;
+  border: 1px solid var.$color-dark;
+  border-radius: var.$radius-l;
+  font-size: 18px;
+  background-color: var.$color-white;
+
+  &::placeholder {
+    font-size: 18px;
+    color: var.$color-placeholder;
+  }
+}
+
+.form-input {
+  font-size: 18px;
+  border-radius: var.$radius-l;
+
+  &::placeholder {
+    font-size: 18px;
+  }
+
+  &--light {
+    padding: 18px 30px;
+    border: 1px solid var.$color-dark;
+    background-color: var.$color-white;
+
+    &::placeholder {
+      color: var.$color-placeholder;
+    }
+
+    @include mix.hover {
+      box-shadow: 2px 2px 10px 2px var.$color-dark;
+    }
+
+    &:focus {
+      box-shadow: 2px 2px 10px 2px var.$color-dark;
+    }
+  }
+
+  &--dark {
+    background-color: transparent;
+    padding: 22px 35px;
+    border: 1px solid var.$color-white;
+    color: var.$color-white;
+
+    @include mix.hover {
+      box-shadow: 2px 2px 10px 2px var.$color-white;
+    }
+
+    &:focus {
+      box-shadow: 2px 2px 10px 2px var.$color-white;
+    }
+  }
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+.form-label {
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  @include mix.fluid(gap, 25, 20);
+  margin-bottom: 40px;
+}
+
+textarea {
+  resize: none;
+  min-height: 190px;
+
+  @include mix.hover {
+    box-shadow: 2px 2px 10px 2px var.$color-dark;
+  }
+
+  &:focus {
+    box-shadow: 2px 2px 10px 2px var.$color-dark;
+  }
+}
+
+.form-img {
+  max-width: 690px;
+  position: absolute;
+  @include mix.fluid(top, 60, 40);
+  right: calc((690px / 2) * -1);
+
+  @include mix.lg {
+    max-width: 500px;
+    right: calc((500px / 2) * -1);
+  }
+
+  @include mix.md {
+    display: none;
+  }
+}
+
+.subscribe-form {
+  background-color: var.$color-neutral;
+  border-radius: var.$radius-l;
+  @include mix.fluid(padding-block, 58, 30);
+  @include mix.fluid(padding-inline, 40, 30);
+  display: flex;
+  gap: 20px;
+
+  @include mix.lg {
+    flex-direction: column;
+  }
+}
+
+.form-footer-wrapper {
+  max-width: 634px;
+
+  @include mix.lg {
+    width: 100%;
+  }
+}

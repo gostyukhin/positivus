@@ -1,0 +1,12 @@
+doctype html
+include ./_includes.pug
+include _structure.pug
+
+html(lang="en")
+  +head()
+  body
+    +header()
+    include components/_mobile-menu.pug
+    main 
+      block content
+    +footer()

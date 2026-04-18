@@ -1,0 +1,18 @@
+mixin reviews(data)
+  .reviews-slider(data-aos="fade-up") 
+    .swiper.reviews-swiper 
+      .swiper-wrapper 
+        each review in data
+          .swiper-slide 
+            .reviews-slide 
+              .reviews-body 
+                p.reviews-text= review.review 
+              .reviews-info 
+                p.h4.reviews-name= review.name 
+                p.reviews-job= review.job
+    .swiper-actions 
+      .swiper-button-prev.reviews-button-prev 
+        include ../../media/icons/arrow-slide-left.svg
+      .swiper-pagination.reviews-pagination
+      .swiper-button-next.reviews-button-next
+        include ../../media/icons/arrow-slide-right.svg

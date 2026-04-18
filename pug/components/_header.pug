@@ -1,0 +1,17 @@
+mixin header()
+  header.header(data-height="header" data-aos="fade-down") 
+    .container 
+      .header-wrapper 
+        a.logo(href="index.html" aria-label="Home page")
+          include ../../media/icons/logo.svg
+        .header-actions 
+          +nav()
+          +button(
+            "button",
+            "btn btn--primary",
+            "Request a quote"
+          )(data-text="Request a quote")
+        button.header-burger(type="button" aria-label="Open mobile menu" aria-expanded="false", aria-controls="mobile-menu") 
+          span
+          span
+          span

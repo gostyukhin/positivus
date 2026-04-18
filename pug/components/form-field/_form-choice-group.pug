@@ -1,0 +1,9 @@
+mixin formChoiceGroup(inputType, legend= '', options=[])
+  fieldset
+    legend.visually-hidden= legend
+    .form-choices
+      each choice in options
+        label.form-choice-label
+          span= choice.label
+          input.form-choice(type=inputType, id= choice.id, name=choice.name, value=choice.value checked= choice.checked)
+          span(class= inputType === 'radio' ? 'custom-radio' : 'custom-checkbox')

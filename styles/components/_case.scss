@@ -1,0 +1,118 @@
+@use '../variables' as var;
+@use '../helpers' as mix;
+
+.case {
+  min-height: 326px;
+  border-radius: var.$radius-xl;
+  background-color: var.$color-dark;
+  @include mix.fluid(padding-block, 70, 50);
+  @include mix.fluid(padding-inline, 60, 40);
+  display: flex;
+  justify-content: space-between;
+
+  @include mix.lg {
+    display: none;
+  }
+}
+
+.case-text {
+  @include mix.fluid(font-size, 18, 16);
+  color: var.$color-white;
+  transition: var.$transition-base;
+  max-width: 286px;
+  line-height: 1.3;
+}
+
+.case-item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-wrap: balance;
+  position: relative;
+
+  @include mix.hover {
+    .case-text {
+      color: var.$color-accent;
+    }
+
+    .case-link {
+      svg {
+        transform: rotate(30deg);
+      }
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+
+    .case-text {
+      color: var.$color-accent;
+    }
+
+    .case-link {
+      svg {
+        transform: rotate(30deg);
+      }
+    }
+  }
+
+  &:not(:first-child) {
+    @include mix.fluid(padding-left, 64, 12);
+  }
+
+  &:not(:nth-child(3)) {
+    @include mix.fluid(padding-right, 64, 12);
+  }
+
+  &:not(:last-child) {
+    &::before {
+      position: absolute;
+      content: '';
+      width: 1px;
+      height: 100%;
+      background-color: var.$color-white;
+      right: 0;
+      top: 0;
+    }
+  }
+}
+
+.case-link {
+  font-size: 20px;
+  line-height: 1.4;
+  display: flex;
+  color: var.$color-accent;
+  gap: 15px;
+  align-items: center;
+
+  svg path {
+    fill: var.$color-accent;
+  }
+}
+
+.case-slide {
+  border-radius: var.$radius-xl;
+  background-color: var.$color-dark;
+  padding: 42px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+
+  @include mix.min-sm {
+    padding-inline: 30px;
+  }
+}
+
+.case-slider {
+  display: none;
+
+  .swiper-slide {
+    height: auto;
+  }
+
+  @include mix.lg {
+    display: block;
+    margin-right: calc(var.$container-padding-x * -1);
+  }
+}

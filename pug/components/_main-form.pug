@@ -1,0 +1,39 @@
+mixin mainForm()
+  form.main-form
+    +formChoiceGroup(
+      'radio',
+      'main-form',
+      [
+        {id: 'hi', name: 'main-form', value: 'say-hi', label: 'Say Hi', checked: true},
+        {id: 'quote', name: 'main-form', value: 'get-quote', label: 'Get a Quote'},
+      ]
+    )
+    .form-fields 
+      +formInput(
+        'text',
+        'user-name',
+        'user-name',
+        'Name',
+        'Name',
+        'form-input--light'
+      )
+      +formInput(
+        'email',
+        'user-email',
+        'user-email',
+        'Email',
+        'Email*',
+        'form-input--light'
+      )
+      +formTextarea(
+        'user-message',
+        'user-message',
+        'Message',
+        'Message*'
+      )
+    +button(
+      'submit',
+      'btn btn--secondary',
+      'Send Message'
+    )(data-text="Send Message")
+    

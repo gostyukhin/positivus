@@ -1,0 +1,18 @@
+mixin case(data)
+  .case(data-aos="fade-up")
+    each card in data
+      a.case-item(href= card.href)
+        p.case-text= card.text
+        .case-link 
+          span Learn more
+          include ../../media/icons/arrow-link.svg
+  .case-slider
+    .swiper.case-swiper 
+      .swiper-wrapper
+        each card in data
+          .swiper-slide
+            a.case-slide(href= card.href)
+              p.case-text= card.text
+              .case-link 
+                span Learn more
+                include ../../media/icons/arrow-link.svg

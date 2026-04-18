@@ -1,0 +1,94 @@
+@use '../variables' as var;
+@use '../helpers' as mix;
+
+.btn {
+  font-size: 20px;
+  line-height: 1.4;
+  border-radius: var.$radius-l;
+  padding-block: 20px;
+  @include mix.fluid(padding-inline, 35, 25);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  border: 1px solid transparent;
+
+  span {
+    display: block;
+    transition: var.$transition-base;
+    pointer-events: none;
+  }
+
+  &::before {
+    position: absolute;
+    content: attr(data-text);
+    transform: translate3d(0, -10px, 0);
+    opacity: 0;
+    transition: var.$transition-base;
+  }
+
+  @include mix.md {
+    &::before {
+      display: none;
+    }
+  }
+
+  @include mix.hover {
+    span {
+      transform: translate3d(0, 10px, 0);
+      opacity: 0;
+    }
+
+    &::before {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+
+    @include mix.md {
+      span {
+        transform: unset;
+        opacity: 1;
+      }
+    }
+  }
+
+  @include mix.md {
+    width: 100%;
+  }
+
+  &--primary {
+    border: 1px solid var.$color-dark;
+
+    &:focus-visible {
+      background-color: var.$color-dark;
+      color: var.$color-white;
+    }
+  }
+
+  &--big {
+    padding-inline: 76px;
+  }
+
+  &--secondary {
+    background-color: var.$color-dark;
+    color: var.$color-white;
+
+    &:focus-visible {
+      border-color: var.$color-dark;
+      background-color: var.$color-white;
+      color: var.$color-dark;
+    }
+  }
+
+  &--accent {
+    background-color: var.$color-accent;
+
+    &:focus-visible {
+      border-color: var.$color-white;
+      background-color: transparent;
+      color: var.$color-white;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@use '../variables' as var;
+@use '../helpers' as mix;
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background-color: var.$color-gray;
+  z-index: 10;
+  padding-top: calc(var(--mobile-menu-padding) + var(--header-height) + 20px);
+  padding-bottom: 20px;
+  transition:
+    transform 0.2s ease-out,
+    visibility 0.2s ease-out;
+  transform: translateX(100%);
+  visibility: hidden;
+  padding-inline: var.$container-padding-x;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+
+  @include mix.lg {
+    &.open {
+      visibility: visible;
+      transform: translateX(0);
+    }
+  }
+}
